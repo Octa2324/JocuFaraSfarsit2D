@@ -6,12 +6,12 @@ public class BackgroundMusic : MonoBehaviour
 {
     private static BackgroundMusic backgroundMusic;
 
-   void Awake()
+    void Awake()
     {
         if(backgroundMusic == null)
         {
             backgroundMusic = this;
-            DontDestroyOnLoad(backgroundMusic);
+            DontDestroyOnLoad(gameObject);
         }
 
         else
