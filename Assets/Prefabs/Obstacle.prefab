@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35f2673b8a2b3b348a705bfb39ce3061, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powParticle: {fileID: 0}
+  redParticles: {fileID: 3394829567684699650, guid: 936e8f453ff108f44824132172860186, type: 3}
 --- !u!58 &1510434338175381638
 CircleCollider2D:
   m_ObjectHideFlags: 0
