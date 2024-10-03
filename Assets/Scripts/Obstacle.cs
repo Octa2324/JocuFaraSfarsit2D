@@ -8,11 +8,13 @@ public class Obstacle : MonoBehaviour
     private float health = 20;
     public ParticleSystem redParticles;
     public ParticleSystem blueParticles;
+    private SoundEffectsPlayer soundEffectsPlayer;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        soundEffectsPlayer = FindObjectOfType<SoundEffectsPlayer>();
     }
 
     public void TakeDamage(float damage)
@@ -20,6 +22,9 @@ public class Obstacle : MonoBehaviour
         health -= damage; ;
         if (health <= 0)
         {
+            soundEffectsPlayer.Boom();
+
+
             ParticleSystem redParticlesInstance = Instantiate(redParticles, transform.position, transform.rotation);
             redParticlesInstance.Play();
             Destroy(redParticlesInstance.gameObject, redParticlesInstance.main.duration + redParticlesInstance.main.startLifetime.constantMax);
@@ -36,10 +41,12 @@ public class Obstacle : MonoBehaviour
 
         else if(collision.tag == "Player")
         {
+            soundEffectsPlayer.Boom();
             ParticleSystem blueParticlesInstance = Instantiate(blueParticles, transform.position, transform.rotation);
             blueParticlesInstance.Play();
             Destroy(blueParticlesInstance.gameObject, blueParticlesInstance.main.duration + blueParticlesInstance.main.startLifetime.constantMax);
             Destroy(player.gameObject);
         }
     }
+
 }

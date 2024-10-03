@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameOver : MonoBehaviour
 {
     public GameObject gameOverPanel;
+    public TextMeshProUGUI scoreText;
 
     // Update is called once per frame
     void Update()
@@ -13,6 +16,7 @@ public class GameOver : MonoBehaviour
         if(GameObject.FindGameObjectWithTag("Player") == null)
         {
             gameOverPanel.SetActive(true);
+            scoreText.enabled = false;
         }
     }
 
